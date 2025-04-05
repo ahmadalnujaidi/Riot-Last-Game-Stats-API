@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,6 +11,11 @@ const REGION = 'americas'; // Fixed for demo; could be configurable
 
 app.use(express.static('public'));
 app.use(express.json());
+
+// Specific route for riot.txt file
+app.get('/riot.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'riot.txt'));
+});
 
 // Step 1: Get PUUID from gameName and tagLine
 app.post('/get-puuid', async (req, res) => {
