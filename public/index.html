@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Stats API Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Valorant Stats API Demo</h1>
+    <p>This site demonstrates how we fetch a player's last Valorant game stats for a Twitch command.</p>
+
+    <!-- Step 1: Input Riot ID -->
+    <div class="step">
+      <h2>Step 1: Enter Riot ID</h2>
+      <input type="text" id="gameName" placeholder="gameName (e.g., Nitoryu)">
+      <input type="text" id="tagLine" placeholder="tagLine (e.g., ABX)">
+      <button onclick="fetchPUUID()">Get PUUID</button>
+      <pre id="puuid-output"></pre>
+    </div>
+
+    <!-- Step 2: Fetch Match List -->
+    <div class="step">
+      <h2>Step 2: Fetch Match List</h2>
+      <button onclick="fetchMatchList()" disabled id="matchlist-btn">Get Match List</button>
+      <pre id="matchlist-output"></pre>
+    </div>
+
+    <!-- Step 3: Fetch Latest Match Stats -->
+    <div class="step">
+      <h2>Step 3: Fetch Latest Match Stats</h2>
+      <button onclick="fetchMatchStats()" disabled id="stats-btn">Get Stats</button>
+      <pre id="stats-output"></pre>
+    </div>
+
+    <!-- Final Note -->
+    <p class="note">For Twitch, we return: "<span id="final-output">gameName#tagLine: X kills, Y deaths, Z assists, W score</span>"</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
